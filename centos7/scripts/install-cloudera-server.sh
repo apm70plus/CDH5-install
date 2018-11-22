@@ -2,6 +2,9 @@
 
 # 安装cloudera-manager服务端
 
+# 00 服务器基础配置
+~/scripts/install-common.sh
+
 # 01 配置SSH无密码访问
 ~/scripts/01-install-ssh.sh
 

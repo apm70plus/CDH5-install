@@ -34,9 +34,13 @@ echo 1048576 > /proc/sys/vm/min_free_kbytes
 echo never > /sys/kernel/mm/transparent_hugepage/defrag  
 echo never > /sys/kernel/mm/transparent_hugepage/enabled
 
+# centos 7.2版本存在tuned服务，该服务会修改swappiness，transparent_hugepage参数值，导致上面的部分配置失效
+# 可以通过 grep -r swappiness /etc  和 grep -r swappiness /usr/lib/tuned 查看相关配置
+# 链接地址 https://www.centos.org/forums/viewtopic.php?t=55678
+
 # 配置集群时间同步服务
 # TODO
 
-echo "#### 00、服务器基础配置完成，需要重启服务器使配置生效。 ####"
-reboot
+echo "#### 00、服务器基础配置完成。 ####"
+
 

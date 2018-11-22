@@ -4,7 +4,9 @@
 echo "#### 01、开始配置SSH无密码访问... ####"
 ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 
-for agent in `cat ~/scripts/list_agents`
+source ~/scripts/config.sh
+agents=("$AGENT_LIST")
+for agent in ${agents[@]}
 do 
   echo "开始拷贝SSH公钥到${agent}服务器"
   ssh-copy-id -i ~/.ssh/id_rsa.pub root@${agent}
